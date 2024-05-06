@@ -15,6 +15,8 @@ public class LabAssistant {
     private String lastName;
     private String hospitalId;
 
+
+
     public Long getId() {
         return id;
     }
