@@ -20,6 +20,22 @@ public class LabReport {
     @JoinColumn(name = "lab_assistant_id")
     private LabAssistant labAssistant;
 
+    public LabAssistant getLabAssistant() {
+        return labAssistant;
+    }
+
+    public void setLabAssistant(LabAssistant labAssistant) {
+        this.labAssistant = labAssistant;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
