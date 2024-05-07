@@ -36,6 +36,7 @@ public class LabReport {
         this.patient = patient;
     }
 
+
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
