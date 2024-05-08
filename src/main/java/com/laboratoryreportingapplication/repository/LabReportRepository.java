@@ -11,4 +11,12 @@ public interface LabReportRepository extends JpaRepository<LabReport, Long> {
     List<LabReport>findByPatientFirstNameContainingIgnoreCaseOrPatientLastNameContainingIgnoreCaseOrPatientIdentityNumberContainingIgnoreCaseOrLabAssistantFirstNameContainingIgnoreCaseOrLabAssistantLastNameContainingIgnoreCase(String firstName, String lastName,
                                                                                                                                                                                                                                    String identityNumber, String assistantFirstName, String assistantLastName);
     List<LabReport> findByOrderByDateGivenDesc();
+
+    List<LabReport> findByPatientFirstNameAndPatientLastName(String patientFirstName, String patientLastName);
+
+    List<LabReport> findByPatientIdentityNumber(String patientIdentityNumber);
+
+    List<LabReport> findByLabAssistantFirstNameAndLabAssistantLastName(String labAssistantFirstName, String labAssistantLastName);
+
+    List<LabReport> findAllByOrderByDate();
 }

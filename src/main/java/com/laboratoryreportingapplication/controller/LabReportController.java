@@ -44,4 +44,39 @@ public class LabReportController {
         labReportService.deleteLabReport(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+    @GetMapping("/search")
+    public ResponseEntity<List<LabReport>>searchLabReport(
+            @RequestParam(required = false) String patientFirstName,
+            @RequestParam(required = false) String patientLastName,
+            @RequestParam(required = false) String patientIdentityNumber,
+            @RequestParam(required = false) String labAssistantFirstName,
+            @RequestParam(required = false) String labAssistantLastName,
+            @RequestParam(required = false) String orderByDate){
+        List<LabReport> labReports;
+        if (patientFirstName != null || patientLastName != null){
+            labReports = labReportService.searchByPatientName(patientFirstName,patientLastName);
+        }
+        // İstekte hasta kimlik numarası varsa ilgili metodu çağırır.
+        else if (patientIdentityNumber != null) {
+            labReports = labReportService.searchByPatientIdentityNumber(patientIdentityNumber);
+        }
+        // İstekte laborant adı veya soyadı varsa ilgili metodu çağırır.
+        else if (labAssistantFirstName != null || labAssistantLastName != null) {
+            labReports = labReportService.searchByLabAssistantName(labAssistantFirstName,labAssistantLastName);
+        }
+        // İstekte "orderByDate" parametresi "date" ise tarihe göre sıralı raporları getirir.
+        else if ("date".equalsIgnoreCase(orderByDate)) {
+            labReports = labReportService.getAllLabReportsOrderByDate();
+        }
+        // Hiçbir parametre belirtilmemişse tüm raporları getirir.
+        else {
+            labReports = labReportService.getAllLabReports();
+        }
+
+        // Sonuçları ve HTTP 200 (OK) durum kodunu döndürür.
+        return ResponseEntity.ok(labReports);
+
+    }
+
+
 }

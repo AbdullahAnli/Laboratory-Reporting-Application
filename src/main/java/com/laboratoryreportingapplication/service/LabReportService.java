@@ -11,4 +11,9 @@ public interface LabReportService {
     List<LabReport>getAllLabReport();
     LabReport getLabReportById(Long id);
     void  deleteLabReport(Long id);
+    List<LabReport> searchByPatientName(String patientFirstName, String patientLastName);
+    List<LabReport> searchByPatientIdentityNumber(String patientIdentityNumber);
+    List<LabReport> searchByLabAssistantName(String labAssistantFirstName, String labAssistantLastName);
+    List<LabReport> getAllLabReportsOrderByDate();
+    List<LabReport> getAllLabReports();
 }

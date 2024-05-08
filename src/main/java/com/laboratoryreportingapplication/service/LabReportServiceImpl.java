@@ -5,7 +5,6 @@ import com.laboratoryreportingapplication.repository.LabAssistantRepository;
 import com.laboratoryreportingapplication.repository.LabReportRepository;
 import com.laboratoryreportingapplication.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +19,7 @@ public class LabReportServiceImpl implements LabReportService {
 
     @Autowired
     private PatientRepository patientRepository;
+
 
     @Override
     @Transactional
@@ -62,6 +62,31 @@ public class LabReportServiceImpl implements LabReportService {
     @Override
     public void deleteLabReport(Long id) {
         labReportRepository.deleteById(id);
+    }
+
+    public List<LabReport> searchByPatientName(String patientFirstName, String patientLastName) {
+        // Hasta adı veya soyadına göre raporları arama işlemi
+        return labReportRepository.findByPatientFirstNameAndPatientLastName(patientFirstName, patientLastName);
+    }
+
+    public List<LabReport> searchByPatientIdentityNumber(String patientIdentityNumber) {
+        // Hasta kimlik numarasına göre raporları arama işlemi
+        return labReportRepository.findByPatientIdentityNumber(patientIdentityNumber);
+    }
+
+    public List<LabReport> searchByLabAssistantName(String labAssistantFirstName, String labAssistantLastName) {
+        // Laborant adı veya soyadına göre raporları arama işlemi
+        return labReportRepository.findByLabAssistantFirstNameAndLabAssistantLastName(labAssistantFirstName, labAssistantLastName);
+    }
+
+    public List<LabReport> getAllLabReportsOrderByDate() {
+        // Tarihe göre sıralı olarak tüm raporları getirme işlemi
+        return labReportRepository.findAllByOrderByDate();
+    }
+
+    public List<LabReport> getAllLabReports() {
+        // Tüm raporları getirme işlemi
+        return labReportRepository.findAll();
     }
 }
 
