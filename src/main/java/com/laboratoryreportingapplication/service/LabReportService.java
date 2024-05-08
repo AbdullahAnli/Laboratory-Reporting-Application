@@ -16,4 +16,5 @@ public interface LabReportService {
     List<LabReport> searchByLabAssistantName(String labAssistantFirstName, String labAssistantLastName);
     List<LabReport> getAllLabReportsOrderByDate();
     List<LabReport> getAllLabReports();
+
 }

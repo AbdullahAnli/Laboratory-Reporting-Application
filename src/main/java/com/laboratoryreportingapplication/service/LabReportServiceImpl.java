@@ -81,13 +81,15 @@ public class LabReportServiceImpl implements LabReportService {
 
     public List<LabReport> getAllLabReportsOrderByDate() {
         // Tarihe göre sıralı olarak tüm raporları getirme işlemi
-        return labReportRepository.findAllByOrderByDate();
+        return labReportRepository.findByOrderByDateGivenDesc();
     }
 
     public List<LabReport> getAllLabReports() {
         // Tüm raporları getirme işlemi
         return labReportRepository.findAll();
     }
+
+
 }
 
 

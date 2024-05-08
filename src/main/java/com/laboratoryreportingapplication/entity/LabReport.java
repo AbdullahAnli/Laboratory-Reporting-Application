@@ -14,6 +14,7 @@ public class LabReport {
     private String diagnosisTitle;
     private String diagnosisDetails;
     private Date dateGiven;
+    private Date desiredDate;
     private String photoPath;
 
     @ManyToOne
@@ -88,6 +89,12 @@ public class LabReport {
     public void setPhotoPath(String photoPath) {
         this.photoPath = photoPath;
     }
+    public Date getDesiredDate() {
+        return desiredDate;
+    }
 
+    public void setDesiredDate(Date desiredDate) {
+        this.desiredDate = desiredDate;
+    }
 
 }
