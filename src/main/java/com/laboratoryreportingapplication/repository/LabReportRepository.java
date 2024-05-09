@@ -18,6 +18,4 @@ public interface LabReportRepository extends JpaRepository<LabReport, Long> {
 
     List<LabReport> findByLabAssistantFirstNameAndLabAssistantLastName(String labAssistantFirstName, String labAssistantLastName);
 
-
-
 }

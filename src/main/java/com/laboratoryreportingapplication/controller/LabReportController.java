@@ -72,7 +72,6 @@ public class LabReportController {
         else {
             labReports = labReportService.getAllLabReports();
         }
-
         // Sonuçları ve HTTP 200 (OK) durum kodunu döndürür.
         return ResponseEntity.ok(labReports);
 
