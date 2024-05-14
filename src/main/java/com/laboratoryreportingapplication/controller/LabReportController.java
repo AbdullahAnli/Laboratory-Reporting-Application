@@ -23,12 +23,12 @@ public class LabReportController {
     @PutMapping("/update/{id}")
     public ResponseEntity<LabReport>updateLabReport(@PathVariable Long id ,  @RequestBody LabReport labReport){
         LabReport updateLabReport = labReportService.uptadeLabReport(id,labReport);
-        return new ResponseEntity<>(updateLabReport,HttpStatus.CREATED);
+        return new ResponseEntity<>(updateLabReport,HttpStatus.OK);
     }
     @GetMapping("/all")
     public ResponseEntity<List<LabReport>>getAllReports(){
         List<LabReport>labReports=labReportService.getAllLabReport();
-        return new ResponseEntity<>(labReports,HttpStatus.CREATED);
+        return new ResponseEntity<>(labReports,HttpStatus.OK);
     }
     @GetMapping("/{id}")
     public ResponseEntity<LabReport>getLabReportById(@PathVariable Long id){
