@@ -15,6 +15,7 @@ public class Patient {
     private String lastName;
     private String identityNumber;
 
+
     public Long getId() {
         return id;
     }

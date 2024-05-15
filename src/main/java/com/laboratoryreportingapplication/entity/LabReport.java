@@ -16,6 +16,8 @@ public class LabReport {
     private Date dateGiven;
     private String photoPath;
 
+
+
     @ManyToOne
     @JoinColumn(name = "lab_assistant_id")
     private LabAssistant labAssistant;
