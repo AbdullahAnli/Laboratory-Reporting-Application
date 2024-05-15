@@ -16,7 +16,21 @@ public class LabReport {
     private Date dateGiven;
     private String photoPath;
 
+    public LabReport(Long id, String fileNumber, String diagnosisTitle,
+                     String diagnosisDetails, Date dateGiven, String photoPath,
+                     LabAssistant labAssistant, Patient patient) {
+        this.id = id;
+        this.fileNumber = fileNumber;
+        this.diagnosisTitle = diagnosisTitle;
+        this.diagnosisDetails = diagnosisDetails;
+        this.dateGiven = dateGiven;
+        this.photoPath = photoPath;
+        this.labAssistant = labAssistant;
+        this.patient = patient;
+    }
+    public LabReport(){
 
+    }
 
     @ManyToOne
     @JoinColumn(name = "lab_assistant_id")

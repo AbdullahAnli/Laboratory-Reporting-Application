@@ -15,6 +15,15 @@ public class Patient {
     private String lastName;
     private String identityNumber;
 
+    public Patient(Long id, String firstName, String lastName, String identityNumber) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.identityNumber = identityNumber;
+    }
+    public Patient(){
+
+    }
 
     public Long getId() {
         return id;
